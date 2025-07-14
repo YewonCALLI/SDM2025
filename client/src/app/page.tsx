@@ -14,7 +14,9 @@ import {
   ImageGallery,
   Credit,
   CreditTutor,
-  CreditThanksTo
+  CreditThanksTo,
+  ProjectNavigation,
+  MobileNavigation
 } from '@/components'
 
 
@@ -134,6 +136,8 @@ export default function Page() {
       />
       <CreditTutor title="Tutor" sections={tutorData} />
       <CreditThanksTo title="Thanks to" sections={thankstoData}/>
+      <MobileNavigation/>
+      <ProjectNavigation/>
       <Footer />
     </>
   )

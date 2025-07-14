@@ -16,3 +16,5 @@ export * from "./ImageGallery";
 export * from "./Credit";
 export * from "./CreditTutor";
 export * from "./CreditThanksTo";
+export * from "./ProjectNavigation";
+export * from "./MobileNavigation";
