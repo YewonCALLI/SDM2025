@@ -23,6 +23,7 @@ import {
   ArchiveImage,
 } from '@/components'
 import { useScrollAtBottom } from '@/hooks'
+import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 const tutorData = [
@@ -73,18 +74,6 @@ const points = [
       '/images/archive-process-5.png',
     ],
   },
-  {
-    id: '2',
-    top: '60%',
-    left: '40%',
-    images: [
-      '/images/archive-process-6.png',
-      '/images/archive-process-7.png',
-      '/images/archive-process-8.png',
-      '/images/archive-process-9.png',
-      '/images/archive-process-10.png',
-    ],
-  },
 ]
 
 export default function Page() {
@@ -96,6 +85,10 @@ export default function Page() {
   const isAtBottom = useScrollAtBottom(10)
 
   const setOpenSidebar = (point: any) => {
+    if (isPointClicked) {
+      setIsPointClicked(false)
+      return
+    }
     setCurrentPoint(point)
     setIsPointClicked(true)
   }
@@ -180,13 +173,12 @@ export default function Page() {
       <ProjectNavigation />
       <ArchiveImage src='/images/pc_archive.png'>
         <ArchivePoint point={points[0]} setOpenSidebar={setOpenSidebar} />
-        <ArchivePoint point={points[1]} setOpenSidebar={setOpenSidebar} />
       </ArchiveImage>
-      <ArchiveImage src='/images/pc_archive.png'>
-        <ArchivePoint point={points[0]} setOpenSidebar={setOpenSidebar} />
-        <ArchivePoint point={points[1]} setOpenSidebar={setOpenSidebar} />
-      </ArchiveImage>
-      <ArchiveSidebar isVisible={!isAtBottom} currentPoint={currentPoint} />
+      <AnimatePresence>
+        {isPointClicked && <ArchiveSidebar isVisible={!isAtBottom} currentPoint={currentPoint} />}
+      </AnimatePresence>
+      {/* 여백 */}
+      <div className='h-[100px] md:h-[200px] lg:h-[300px] bg-white' />
       <Footer />
     </>
   )

@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 interface ArchiveSidebarProps {
@@ -9,6 +9,14 @@ interface ArchiveSidebarProps {
 
 export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const mobileScrollRef = useRef<HTMLDivElement>(null)
+
+  // 모바일에서 확장될 때마다 스크롤 위치를 즉시 상단으로 초기화
+  useEffect(() => {
+    if (isExpanded && mobileScrollRef.current) {
+      mobileScrollRef.current.scrollTop = 0
+    }
+  }, [isExpanded])
 
   return (
     <>
@@ -70,6 +78,7 @@ export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps)
       </motion.div>
       {/* mobile */}
       <motion.div
+        ref={mobileScrollRef}
         initial={{
           opacity: 0,
           y: 100,

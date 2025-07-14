@@ -10,5 +10,5 @@ export const METADATA = {
       email: 'yewoncalli.com',
     },
   ],
-  url: '',
+  url: 'https://sdm-2025.vercel.app/',
 }
