@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useDeviceWidth } from '@/hooks'
 
 interface ArchiveSidebarProps {
   isVisible?: boolean
@@ -10,7 +9,6 @@ interface ArchiveSidebarProps {
 
 export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps) {
   const [isExpanded, setIsExpanded] = useState(false)
-  const deviceWidth = useDeviceWidth()
 
   return (
     <>

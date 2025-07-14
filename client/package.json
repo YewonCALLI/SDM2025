@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "SDM2025",
   "version": "0.1.0",
   "authors": [
-    ""
+    "Yewon Jang <yewoncalli.com>"
   ],
   "private": true,
   "scripts": {
@@ -10,8 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "npx prettier --list-different \"./src/**/*.{ts,tsx,md}\" \"./app/**/*.{ts,tsx,md}\"\"",
-    "postbuild": "next-sitemap"
+    "prettier": "npx prettier --list-different \"./src/**/*.{ts,tsx,md}\" \"./app/**/*.{ts,tsx,md}\"\""
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.0.0",

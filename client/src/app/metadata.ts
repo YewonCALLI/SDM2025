@@ -1,15 +1,14 @@
 export const METADATA = {
-  name: "",
-  title: "",
-  titleTemplate: "%s - ",
-  description: `
-  `,
+  name: 'SAMSUNG DESIGN MEMBERSHIP 2025',
+  title: 'SAMSUNG DESIGN MEMBERSHIP 2025',
+  titleTemplate: '%s - SDM2025',
+  description: '',
   keywords: [],
   authors: [
     {
-      name: "",
-      email: "",
+      name: 'Yewon Jang',
+      email: 'yewoncalli.com',
     },
   ],
-  url: "",
-};
+  url: '',
+}
