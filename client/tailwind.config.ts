@@ -26,6 +26,11 @@ export default {
       "9xl": "8rem", // 128px
     },
     extend: {
+      screens: {
+        'xs': '390px',
+        'lg':'1440px',
+        'xl':'1920px'
+      },
       colors: {},
       fontFamily: {
         // 한글용 폰트
