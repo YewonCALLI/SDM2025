@@ -178,7 +178,9 @@ export default function Page() {
         {isPointClicked && <ArchiveSidebar isVisible={!isAtBottom} currentPoint={currentPoint} />}
       </AnimatePresence>
       {/* 여백 */}
-      <div className='h-[100px] md:h-[200px] lg:h-[300px] bg-white' />
+      <div className='h-[300px] md:h-[400px] lg:h-[500px] bg-gray-100 flex items-center justify-center text-gray-500 text-sm'>
+        스크롤이 바닥에 닿을 때, 사라지는 사이드바 기능을 확인하기 위한 여백입니다.
+      </div>
       <Footer />
     </>
   )
