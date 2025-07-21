@@ -16,13 +16,11 @@ interface CreditTutorProps {
 }
 
 export function CreditTutor({ title = 'Tutor', sections }: CreditTutorProps) {
-  // PC 모드에서만 VD tutor 섹션을 3명씩 나누는 함수
   const splitVDTutorForDesktop = (sections: TutorSection[]): TutorSection[] => {
     const result: TutorSection[] = []
 
     sections.forEach((section) => {
       if (section.title === 'VD tutor' && section.tutors.length > 3) {
-        // 3명씩 나누어서 새로운 섹션 생성
         for (let i = 0; i < section.tutors.length; i += 3) {
           result.push({
             title: 'VD tutor',
@@ -40,7 +38,6 @@ export function CreditTutor({ title = 'Tutor', sections }: CreditTutorProps) {
   return (
     <div className='w-full px-[35px] py-[56px] md:px-[40px] md:py-[56px] lg:px-[235px] lg:py-[84px] bg-white'>
       <div className='flex flex-col md:flex-row lg:justify-between'>
-        {/* 제목 */}
         <div className='mb-9 lg:mb-0 w-[100%] md:w-[25%] lg:w-[20%]'>
           <h2 className='text-neutral-800 text-base lg:text-lg font-bold leading-[1.6] lg:leading-[1.5] tracking-[-0.02em]'>
             {title}
