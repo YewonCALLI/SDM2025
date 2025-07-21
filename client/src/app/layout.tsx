@@ -3,7 +3,7 @@ import { METADATA } from "./metadata";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { pretendard } from "@/theme/font";
 import "@/styles/globals.css";
-import { Layout } from "@/components/projects";
+import { Layout } from "@/components/projects/Layout";
 
 export const metadata: Metadata = {
   alternates: {
@@ -90,12 +90,6 @@ export default function RootLayout({
       <body className={`${pretendard.variable} antialiased`}>
         <Layout>{children}</Layout>
       </body>
-      {process.env.NEXT_PUBLIC_GTM_ID && (
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-      )}
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-      )}
     </html>
   );
 }
