@@ -11,12 +11,12 @@ export function TitleBody({
 }: TitleBody) {
 
   return (
-    <div className='w-full px-4 py-14 xs:px-4 xs:py-14 md:px-10 md:py-14 lg:px-40 lg:py-[84px] xl:px-[240px] xl:py-[84px] bg-white flex flex-col justify-start items-start gap-2.5 overflow-hidden xs:overflow-visible md:overflow-hidden lg:overflow-hidden'>
+    <div className='w-full px-4 py-14 xs:px-4 xs:py-14 md:px-10 md:py-14 lg:px-40 lg:py-[84px] bg-white flex flex-col justify-start items-start gap-[20px] md:gap-[10px] lg:gap-[24px] overflow-hidden xs:overflow-visible md:overflow-hidden lg:overflow-hidden'>
       <div className='self-stretch flex flex-col xs:flex-col md:flex-row lg:flex-row justify-start items-start gap-4 xs:gap-4 md:gap-20 lg:gap-52'>
-        <div className='w-full xs:w-full md:w-[176px] lg:w-64 text-neutral-800 text-xl xs:text-xl md:text-xl lg:text-3xl font-bold leading-loose xs:leading-loose md:leading-[0.9] lg:leading-10'>
+        <div className='xs:w-full md:w-[176px] lg:w-[264px] text-neutral-800 text-[36px] md:text-[24px] lg:text-[40px] font-semibold leading-[0.95] md:leading-[0.9] lg:leading-10'>
           {title}
         </div>
-        <div className='flex-1 text-neutral-800 text-base xs:text-base md:text-base lg:text-lg font-normal xs:font-normal md:font-medium lg:font-medium leading-7 xs:leading-7 md:leading-relaxed lg:leading-relaxed'>
+        <div className='w-full flex-1 text-neutral-800 text-[17px] lg:text-[18px] font-normal xs:font-normal md:font-medium lg:font-medium leading-7 xs:leading-7 md:leading-relaxed lg:leading-relaxed'>
           {text}
         </div>
       </div>

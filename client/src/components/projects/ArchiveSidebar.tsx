@@ -5,11 +5,17 @@ import { motion } from 'framer-motion'
 interface ArchiveSidebarProps {
   isVisible?: boolean
   currentPoint: any
+  onExpandedChange?: (expanded: boolean) => void
 }
 
-export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps) {
+export function ArchiveSidebar({ isVisible, currentPoint, onExpandedChange }: ArchiveSidebarProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const mobileScrollRef = useRef<HTMLDivElement>(null)
+
+  // 확장 상태가 변경될 때 부모에게 알림
+  useEffect(() => {
+    onExpandedChange?.(isExpanded)
+  }, [isExpanded, onExpandedChange])
 
   // 모바일에서 확장될 때마다 스크롤 위치를 즉시 상단으로 초기화
   useEffect(() => {
@@ -17,6 +23,14 @@ export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps)
       mobileScrollRef.current.scrollTop = 0
     }
   }, [isExpanded])
+
+  const handleClose = () => {
+    setIsExpanded(false)
+  }
+
+  const handleExpand = () => {
+    setIsExpanded(true)
+  }
 
   return (
     <>
@@ -35,7 +49,7 @@ export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps)
         {!isExpanded ? (
           <div
             className='w-fit h-full px-3.5 py-0 md:py-[18px] lg:py-0 cursor-pointer flex justify-center items-center md:items-start lg:items-center'
-            onClick={() => setIsExpanded(true)}
+            onClick={handleExpand}
           >
             <div className='writingMode-vertical-lr text-sm md:text-base lg:text-lg text-black font-semibold leading-relaxed md:hover:opacity-70 active:scale-105 transition-all'>
               Process Archive
@@ -44,10 +58,10 @@ export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps)
         ) : (
           <div className='w-full h-full overflow-y-scroll flex flex-col items-center justify-between'>
             {/* Header */}
-            <div className='w-full h-fit sticky z-10 top-0 bg-white flex flex-row items-center justify-between px-4 py-5'>
+            <div className='w-full h-fit lg:mt-[80px] sticky z-10 top-0 bg-white flex flex-row items-center justify-between px-4 py-5'>
               <span className=' text-black text-lg font-semibold leading-[1.5] tracking-[]'>Process Archive</span>
               <button
-                onClick={() => setIsExpanded(false)}
+                onClick={handleClose}
                 className='w-6 h-6 relative flex items-center justify-center cursor-pointer md:hover:opacity-70 active:scale-105 transition-all duration-300 ease-in-out'
               >
                 <svg
@@ -87,7 +101,7 @@ export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps)
         animate={{
           opacity: isVisible ? 1 : 0,
           y: 0,
-          height: isExpanded ? '100dvh' : 'auto',
+          height: isExpanded ? 'calc(100dvh - 58px)' : 'auto',
         }}
         exit={{
           opacity: 0,
@@ -95,7 +109,7 @@ export function ArchiveSidebar({ isVisible, currentPoint }: ArchiveSidebarProps)
           height: 'auto',
         }}
         transition={{ duration: 0.3 }}
-        className={`md:hidden w-full bg-white overflow-y-scroll fixed bottom-0 left-0 z-20 flex flex-col items-center justify-start`}
+        className={`md:hidden w-full bg-white overflow-y-scroll fixed bottom-0 left-0 z-20 flex flex-col items-center justify-start `}
       >
         {/* Header */}
         <div className='w-full h-fit sticky z-10 top-0 bg-white flex flex-row items-center justify-between px-4 py-5'>

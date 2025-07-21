@@ -21,7 +21,7 @@ export function Header() {
   }
 
   return (
-    <div className='w-full bg-white'>
+    <div className='w-full bg-white h-fit sticky top-0 z-30'>
       <div className='w-full h-[58px] xs: px-[16px] xs:py-[30px] lg:px-[48px] lg:py-[30px] lg:h-[80px] md:px-[40px] md:py-[30px] md:h-[68px] inline-flex justify-between items-center'>
         <div className='h-7 relative bg-pink-200 flex justify-center items-center'>
           <div className="justify-start text-black text-sm font-semibold font-['Pretendard'] leading-tight">

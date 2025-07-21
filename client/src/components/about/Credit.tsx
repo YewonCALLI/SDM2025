@@ -53,7 +53,7 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                       </>
                     )}
                   </div>
-                  <div className="w-full text-zinc-600 text-[16px] font-medium leading-[1.6] xs:leading-[1.6] md:leading-[1.5] lg:leading-[1.5] tracking-[-0.02em]">
+                  <div className="w-full text-zinc-600 text-[16px] font-regular leading-[1.6] xs:leading-[1.6] md:leading-[1.5] lg:leading-[1.5] tracking-[-0.02em]">
                     {member.englishName}
                   </div>
                 </div>
@@ -66,7 +66,7 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                         href={member.socialLinks.instagram}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 rounded flex items-center justify-center transition-colors'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 active:bg-[#4B4F57] rounded flex items-center justify-center'
                         aria-label='Instagram'
                       >
                         <svg
@@ -93,7 +93,7 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                         href={member.socialLinks.behance}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 rounded flex items-center justify-center  transition-colors'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 active:bg-[#4B4F57] rounded flex items-center justify-center'
                         aria-label='Behance'
                       >
                           <svg
@@ -139,7 +139,7 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                         href={member.socialLinks.linkedin}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 rounded flex items-center justify-center transition-colors'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 active:bg-[#4B4F57] rounded flex items-center justify-center'
                         aria-label='링크드인'
                       >
                         <svg

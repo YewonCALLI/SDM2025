@@ -44,7 +44,7 @@ export function MobileNavigation({ onPrevious, onNext }: MobileNavigationProps) 
         </div>
       </div>
 
-      <div className='w-full px-4 py-[30px] bg-white flex flex-row justify-between items-center overflow-hidden hidden md:flex lg:hidden'>
+      <div className='w-full px-4 py-[30px] bg-white flex flex-row justify-between items-center overflow-hidden hidden md:flex'>
         <div className='flex justify-start items-center cursor-pointer' onClick={onPrevious}>
           <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'>
             <g clipPath='url(#clip0_50_2186)'>

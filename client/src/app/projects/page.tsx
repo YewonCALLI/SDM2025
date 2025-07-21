@@ -24,7 +24,7 @@ import {
 } from '@/components/projects'
 import { useScrollAtBottom } from '@/hooks'
 import { AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const tutorData = [
   {
@@ -77,32 +77,77 @@ const points = [
 ]
 
 export default function Page() {
-  const [isPointClicked, setIsPointClicked] = useState(false)
+  const [isMouseInRightThird, setIsMouseInRightThird] = useState(false)
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [isTablet, setIsTablet] = useState(false)
   const [currentPoint, setCurrentPoint] = useState(
     points[0], // 초기값으로 첫 번째 포인트 설정
   )
 
   const isAtBottom = useScrollAtBottom(10)
 
-  const setOpenSidebar = (point: any) => {
-    if (isPointClicked) {
-      setIsPointClicked(false)
-      return
+  // 디바이스 타입 체크
+  useEffect(() => {
+    const checkDeviceType = () => {
+      const width = window.innerWidth
+      setIsMobile(width < 768) // 768px 미만은 모바일
+      setIsTablet(width >= 768 && width < 1440) // 768px 이상 1440px 미만은 테블릿
     }
-    setCurrentPoint(point)
-    setIsPointClicked(true)
+
+    checkDeviceType()
+    window.addEventListener('resize', checkDeviceType)
+    
+    return () => {
+      window.removeEventListener('resize', checkDeviceType)
+    }
+  }, [])
+
+  // 마우스 위치 추적 (PC에서만)
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      // 모바일이나 테블릿이면 마우스 추적하지 않음
+      if (isMobile || isTablet) return
+      
+      const windowWidth = window.innerWidth
+      const mouseX = event.clientX
+      
+      // 오른쪽 1/3 지점 계산 (화면 너비의 2/3 지점부터)
+      const rightThirdThreshold = windowWidth * (2/3)
+      
+      setIsMouseInRightThird(mouseX >= rightThirdThreshold)
+    }
+
+    // 마우스 이동 이벤트 리스너 추가
+    window.addEventListener('mousemove', handleMouseMove)
+    
+    // 컴포넌트 언마운트 시 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [isMobile, isTablet])
+
+  // 사이드바 확장 상태 변경 핸들러
+  const handleSidebarExpandedChange = (expanded: boolean) => {
+    setIsSidebarExpanded(expanded)
   }
+
+  // 사이드바 표시 여부 결정: 
+  // - 모바일에서는 항상 true
+  // - 테블릿에서는 항상 true (새로 추가된 조건)
+  // - PC에서는 마우스가 오른쪽 1/3에 있거나 확장된 상태일 때
+  const shouldShowSidebar = isMobile || isTablet || isMouseInRightThird || isSidebarExpanded
 
   return (
     <>
       <Header />
       <Summary />
       <MainImage />
-      <Divide />
-      <TitleBody />
+      <Divide title='Background' number='01' />
+      <TitleBody title="'나의 순간'에 몰입하는 방법'" text="'Slac은 언제나 소리와 함께하는 Z세대가 소리로 '나의 순간'에 몰입하는 방법을 제안합니다. 모든 순간 나를 가장 가까이서 이해하는 웨어러블 오디오를 통해 나와 닮아가는 소리는 마치 나에게 딱 맞는 옷을 입는 것처럼 변화합니다. Slac과 함께 디렉터가 되어, 소리로 완성되는 나만의 #Scene을 만나보세요!"/>
       <RightTitleBody />
       <RightBody />
-      <MidBody />
+      <MidBody content="Slac은 언제나 소리와 함께하는 Z세대가 소리로 '나의 순간'에 몰입하는 방법을 제안합니다. 모든 순간 나를 가장 가까이서 이해하는 웨어러블 오디오를 통해 나와 닮아가는 소리는 마치 나에게 딱 맞는 옷을 입는 것처럼 변화합니다. Slac과 함께 디렉터가 되어, 소리로 완성되는 나만의 #Scene을 만나보세요!" />
       <MidTitle />
       <LeftTitle />
       <MediaContainer type='video' src='https://player.vimeo.com/video/844128999' alt='이곳에 비디오를' />
@@ -171,16 +216,15 @@ export default function Page() {
       <CreditThanksTo title='Thanks to' sections={thankstoData} />
       <MobileNavigation />
       <ProjectNavigation />
-      <ArchiveImage src='/images/pc_archive.png'>
-        <ArchivePoint point={points[0]} setOpenSidebar={setOpenSidebar} />
-      </ArchiveImage>
       <AnimatePresence>
-        {isPointClicked && <ArchiveSidebar isVisible={!isAtBottom} currentPoint={currentPoint} />}
+        {shouldShowSidebar && (
+          <ArchiveSidebar 
+            isVisible={!isAtBottom} 
+            currentPoint={currentPoint} 
+            onExpandedChange={handleSidebarExpandedChange}
+          />
+        )}
       </AnimatePresence>
-      {/* 여백 */}
-      <div className='h-[300px] md:h-[400px] lg:h-[500px] bg-gray-100 flex items-center justify-center text-gray-500 text-sm'>
-        스크롤이 바닥에 닿을 때, 사라지는 사이드바 기능을 확인하기 위한 여백입니다.
-      </div>
       <Footer />
     </>
   )

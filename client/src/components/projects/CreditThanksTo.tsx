@@ -38,7 +38,7 @@ export function CreditThanksTo({ title = 'Thanks to', sections }: CreditTutorPro
   }
 
   return (
-    <div className='w-full px-[35px] py-[56px] md:px-[40px] md:py-[56px] lg:px-[235px] lg:py-[84px] bg-white'>
+    <div className='w-full px-[35px] pt-0 pb-[112px] md:px-[40px] md:pb-[112px] lg:px-[235px] lg:pb-[168px] xl:px-[240px] bg-white'>
       <div className='flex flex-col md:flex-row lg:justify-between'>
         {/* 제목 */}
         <div className='mb-9 lg:mb-0 w-[100%] md:w-[25%] lg:w-[20%]'>
@@ -61,7 +61,7 @@ export function CreditThanksTo({ title = 'Thanks to', sections }: CreditTutorPro
                     <div className='text-neutral-800 text-base font-bold leading-[1.6] tracking-[-0.02em]'>
                       {tutor.name}
                     </div>
-                    <div className='text-zinc-600 text-sm font-medium leading-[1.6] tracking-[-0.02em]'>
+                    <div className='text-zinc-600 text-sm font-regular leading-[1.6] tracking-[-0.02em]'>
                       {tutor.englishName}
                     </div>
                   </div>
