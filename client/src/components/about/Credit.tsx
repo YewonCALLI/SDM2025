@@ -19,7 +19,7 @@ interface CreditProps {
 
 export function Credit({ title = 'Designed By', members }: CreditProps) {
   return (
-    <div className='w-full px-4 py-14 xs:px-4 xs:py-14 md:px-[40px] md:py-[56px] lg:px-[235px] lg:py-[84px] bg-white flex flex-col justify-start items-start gap-2.5'>
+    <div className='w-full px-4 py-14 xs:px-4 xs:py-14 md:px-[40px] md:py-[56px] lg:px-[235px] lg:py-[84px] xl:px-[240px] bg-white flex flex-col justify-start items-start gap-2.5'>
       <div className='w-full flex flex-col justify-start items-start xs:gap-[22px] md:gap-[16px] lg:gap-[24px]'>
         {/* 제목 */}
         <div className="text-neutral-800 text-base xs:text-base md:text-base lg:text-lg font-bold leading-[1.6] xs:leading-[1.6] md:leading-[1.5] lg:leading-[1.5] tracking-[-0.02em]">
