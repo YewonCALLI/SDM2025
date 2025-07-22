@@ -97,7 +97,7 @@ export default function Page() {
 
     checkDeviceType()
     window.addEventListener('resize', checkDeviceType)
-    
+
     return () => {
       window.removeEventListener('resize', checkDeviceType)
     }
@@ -108,19 +108,19 @@ export default function Page() {
     const handleMouseMove = (event: MouseEvent) => {
       // 모바일이나 테블릿이면 마우스 추적하지 않음
       if (isMobile || isTablet) return
-      
+
       const windowWidth = window.innerWidth
       const mouseX = event.clientX
-      
+
       // 오른쪽 1/3 지점 계산 (화면 너비의 2/3 지점부터)
-      const rightThirdThreshold = windowWidth * (2/3)
-      
+      const rightThirdThreshold = windowWidth * (2 / 3)
+
       setIsMouseInRightThird(mouseX >= rightThirdThreshold)
     }
 
     // 마우스 이동 이벤트 리스너 추가
     window.addEventListener('mousemove', handleMouseMove)
-    
+
     // 컴포넌트 언마운트 시 이벤트 리스너 제거
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
@@ -132,7 +132,7 @@ export default function Page() {
     setIsSidebarExpanded(expanded)
   }
 
-  // 사이드바 표시 여부 결정: 
+  // 사이드바 표시 여부 결정:
   // - 모바일에서는 항상 true
   // - 테블릿에서는 항상 true (새로 추가된 조건)
   // - PC에서는 마우스가 오른쪽 1/3에 있거나 확장된 상태일 때
@@ -144,7 +144,10 @@ export default function Page() {
       <Summary />
       <MainImage />
       <Divide title='Background' number='01' />
-      <TitleBody title="'나의 순간'에 몰입하는 방법'" text="'Slac은 언제나 소리와 함께하는 Z세대가 소리로 '나의 순간'에 몰입하는 방법을 제안합니다. 모든 순간 나를 가장 가까이서 이해하는 웨어러블 오디오를 통해 나와 닮아가는 소리는 마치 나에게 딱 맞는 옷을 입는 것처럼 변화합니다. Slac과 함께 디렉터가 되어, 소리로 완성되는 나만의 #Scene을 만나보세요!"/>
+      <TitleBody
+        title="'나의 순간'에 몰입하는 방법'"
+        text="'Slac은 언제나 소리와 함께하는 Z세대가 소리로 '나의 순간'에 몰입하는 방법을 제안합니다. 모든 순간 나를 가장 가까이서 이해하는 웨어러블 오디오를 통해 나와 닮아가는 소리는 마치 나에게 딱 맞는 옷을 입는 것처럼 변화합니다. Slac과 함께 디렉터가 되어, 소리로 완성되는 나만의 #Scene을 만나보세요!"
+      />
       <RightTitleBody />
       <RightBody />
       <MidBody content="Slac은 언제나 소리와 함께하는 Z세대가 소리로 '나의 순간'에 몰입하는 방법을 제안합니다. 모든 순간 나를 가장 가까이서 이해하는 웨어러블 오디오를 통해 나와 닮아가는 소리는 마치 나에게 딱 맞는 옷을 입는 것처럼 변화합니다. Slac과 함께 디렉터가 되어, 소리로 완성되는 나만의 #Scene을 만나보세요!" />
@@ -156,58 +159,47 @@ export default function Page() {
         title='Designed By'
         members={[
           {
-            name: '김민채',
-            role: 'PL · UX',
-            englishName: 'Gildong Hong',
-            profileImage: '/images/32_UX_백채영_1.png',
+            name: '나승환',
+            role: 'PL · ID',
+            englishName: 'Seunghwan Ra',
+            profileImage: '/images/profile/seunghwanra.png',
             socialLinks: {
-              linkedin: 'https://linkedin.com',
-              behance: 'https://behance.net/kim',
-              instagram: 'https://instagram.com/kim',
+              linkedin: 'https://www.linkedin.com/in/seungwhan-ra-119818217/',
+              behance: 'https://www.behance.net/seunghwanRA',
+              instagram: 'https://instagram.com/__gigawatt',
             },
           },
           {
-            name: '김민채',
+            name: '박지민',
             role: 'PL · UX',
-            englishName: 'Gildong Hong',
-            profileImage: '/images/32_UX_백채영_1.png',
+            englishName: 'Jimin Park',
+            profileImage: '/images/profile/jiminpark.png',
             socialLinks: {
-              linkedin: 'https://linkedin.com',
-              behance: 'https://behance.net/kim',
-              instagram: 'https://instagram.com/kim',
+              linkedin: '',
+              behance: 'https://www.behance.net/jm_park',
+              instagram: 'https://instagram.com/jminxve',
             },
           },
           {
-            name: '김민채',
-            role: 'PL · UX',
-            englishName: 'Gildong Hong',
-            profileImage: '/images/32_UX_백채영_1.png',
+            name: '김도영',
+            role: 'VD',
+            englishName: 'Doyoung Kim',
+            profileImage: '/images/profile/doyoungkim.png',
             socialLinks: {
-              linkedin: 'https://linkedin.com',
-              behance: 'https://behance.net/kim',
-              instagram: 'https://instagram.com/kim',
+              linkedin: '',
+              behance: 'https://www.behance.net/Do_0ski',
+              instagram: 'https://instagram.com/do_0ski',
             },
           },
           {
-            name: '김민채',
-            role: 'PL · UX',
-            englishName: 'Gildong Hong',
-            profileImage: '/images/32_UX_백채영_1.png',
+            name: '이준영',
+            role: 'ID',
+            englishName: 'Junyoung Lee',
+            profileImage: '/images/profile/junyounglee.png',
             socialLinks: {
-              linkedin: 'https://linkedin.com',
-              behance: 'https://behance.net/kim',
-              instagram: 'https://instagram.com/kim',
-            },
-          },
-          {
-            name: '김민채',
-            role: 'PL · UX',
-            englishName: 'Gildong Hong',
-            profileImage: '/images/32_UX_백채영_1.png',
-            socialLinks: {
-              linkedin: 'https://linkedin.com',
-              behance: 'https://behance.net/kim',
-              instagram: 'https://instagram.com/kim',
+              linkedin: '',
+              behance: 'https://www.behance.net/Junyoung424',
+              instagram: 'https://instagram.com/j_zerodesign',
             },
           },
         ]}
@@ -218,9 +210,9 @@ export default function Page() {
       <ProjectNavigation />
       <AnimatePresence>
         {shouldShowSidebar && (
-          <ArchiveSidebar 
-            isVisible={!isAtBottom} 
-            currentPoint={currentPoint} 
+          <ArchiveSidebar
+            isVisible={!isAtBottom}
+            currentPoint={currentPoint}
             onExpandedChange={handleSidebarExpandedChange}
           />
         )}

@@ -18,6 +18,12 @@ interface CreditProps {
 }
 
 export function Credit({ title = 'Designed By', members }: CreditProps) {
+  // 소셜 링크가 하나라도 있는지 확인하는 함수
+  const hasSocialLinks = (socialLinks?: TeamMember['socialLinks']) => {
+    if (!socialLinks) return false;
+    return !!(socialLinks.instagram || socialLinks.behance || socialLinks.linkedin);
+  };
+
   return (
     <div className='w-full px-4 py-14 xs:px-4 xs:py-14 md:px-[40px] md:py-[56px] lg:px-[235px] lg:py-[84px] xl:px-[240px] bg-white flex flex-col justify-start items-start gap-2.5'>
       <div className='w-full flex flex-col justify-start items-start xs:gap-[22px] md:gap-[16px] lg:gap-[24px]'>
@@ -53,16 +59,16 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                   </div>
                 </div>
 
-                {/* 소셜 링크 */}
-                {member.socialLinks && (
+                {/* 소셜 링크 - 하나라도 있을 때만 렌더링 */}
+                {hasSocialLinks(member.socialLinks) && (
                   <div className='w-full flex justify-start items-center gap-2 xs:gap-1 md:gap-1 lg:gap-1'>
-                    {member.socialLinks.instagram && (
+                    {member.socialLinks?.instagram && (
                       <a
                         href={member.socialLinks.instagram}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 active:bg-[#4B4F57] rounded flex items-center justify-center'
-                        aria-label='Instagram'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] active:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
+                        aria-label={`${member.name} Instagram`}
                       >
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
@@ -83,20 +89,20 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                       </a>
                     )}
 
-                    {member.socialLinks.behance && (
+                    {member.socialLinks?.behance && (
                       <a
                         href={member.socialLinks.behance}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 active:bg-[#4B4F57] rounded flex items-center justify-center'
-                        aria-label='Behance'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] active:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
+                        aria-label={`${member.name} Behance`}
                       >
-                          <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            viewBox='0 0 17 13'
-                            fill='none'
-                            className='w-full h-full px-[4.3px] py-[5.2px]'
-                          >
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          viewBox='0 0 17 13'
+                          fill='none'
+                          className='w-full h-full px-[4.3px] py-[5.2px]'
+                        >
                           <g clipPath='url(#clip0_5_4247)'>
                             <path
                               d='M6.72061 6.03252C6.70101 6.11376 6.7324 6.11891 6.77709 6.16343C6.93209 6.31776 7.24225 6.46695 7.42316 6.65002C7.81156 7.04324 8.12405 7.6614 8.17555 8.21676C8.35214 10.1202 7.15869 11.3197 5.40571 11.7554C3.76039 12.1644 1.88316 11.9026 0.201789 11.9028L0.199463 1.23744C0.372235 1.24807 0.535704 1.18594 0.704489 1.17531C1.75358 1.10985 3.27115 1.11052 4.31974 1.17813C5.78199 1.27232 7.2989 1.92188 7.61321 3.49377C7.79362 4.39567 7.51835 5.52451 6.72061 6.03269V6.03252ZM2.40563 5.38446L4.96996 5.47018C5.574 4.94938 5.67899 3.87736 4.95833 3.39792C4.82643 3.3102 4.35064 3.11932 4.21226 3.11932H2.40546V5.38446H2.40563ZM2.40563 10.0227C3.35255 10.1149 5.65839 10.2317 5.80359 8.91715C5.86173 8.39103 5.75059 7.8365 5.24673 7.58598C5.09306 7.50956 4.46959 7.32599 4.32024 7.32599H2.40563V10.0227Z'
@@ -129,13 +135,13 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                       </a>
                     )}
 
-                    {member.socialLinks.linkedin && (
+                    {member.socialLinks?.linkedin && (
                       <a
                         href={member.socialLinks.linkedin}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 active:bg-[#4B4F57] rounded flex items-center justify-center'
-                        aria-label='링크드인'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] active:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
+                        aria-label={`${member.name} 링크드인`}
                       >
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
