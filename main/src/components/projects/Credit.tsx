@@ -67,7 +67,7 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                         href={member.socialLinks.instagram}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] active:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] hover:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
                         aria-label={`${member.name} Instagram`}
                       >
                         <svg
@@ -94,7 +94,7 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                         href={member.socialLinks.behance}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] active:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] hover:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
                         aria-label={`${member.name} Behance`}
                       >
                         <svg
@@ -140,7 +140,7 @@ export function Credit({ title = 'Designed By', members }: CreditProps) {
                         href={member.socialLinks.linkedin}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] active:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
+                        className='xs:w-[26px] xs:h-[26px] md:w-[24px] md:h-[24px] lg:w-[30px] lg:h-[30px] bg-zinc-600 hover:bg-[#4B4F57] hover:bg-[#4B4F57] rounded flex items-center justify-center transition-colors duration-200'
                         aria-label={`${member.name} 링크드인`}
                       >
                         <svg

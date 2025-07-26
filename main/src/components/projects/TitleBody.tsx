@@ -11,8 +11,8 @@ export function TitleBody({
 }: TitleBody) {
 
   return (
-    <div className='w-full px-4 py-14 xs:px-4 xs:py-14 md:px-10 md:py-14 lg:px-40 lg:py-[84px] xl:px-[240px] xl:py-[84px] bg-white flex flex-col justify-start items-start gap-2.5 overflow-hidden xs:overflow-visible md:overflow-hidden lg:overflow-hidden'>
-      <div className='self-stretch flex flex-col xs:flex-col md:flex-row lg:flex-row justify-between items-start gap-4 xs:gap-4 md:gap-20 lg:gap-52'>
+    <div className='w-full px-[4.27vw] py-14 md:px-[5.21vw] md:py-14 lg:px-[15.63vw] lg:py-[84px] xl:px-[18.75vw] xl:py-[84px] bg-white flex flex-col justify-start items-start'>
+      <div className='self-stretch flex flex-col xs:flex-col md:flex-row lg:flex-row justify-between items-start gap-4 md:gap-20 lg:gap-auto'>
         <div className='w-full xs:w-full md:w-[176px] lg:w-64 text-neutral-800 text-xl xs:text-xl md:text-xl lg:text-3xl font-bold leading-loose xs:leading-loose md:leading-[0.9] lg:leading-10'>
           {title}
         </div>

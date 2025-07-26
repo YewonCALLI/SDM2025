@@ -2,7 +2,7 @@
 
 export function RightTitleBody() {
   return (
-    <div className="w-full px-4 py-14 xs:px-4 xs:py-14 md:pl-[304px] md:pr-10 md:py-14 lg:pl-[635px] lg:pr-40 lg:py-[84px] xl:pl-[848px] xl:pr-[260px] bg-white flex flex-col justify-start items-start gap-2.5 overflow-hidden xs:overflow-visible md:overflow-hidden lg:overflow-hidden">
+    <div className="w-full px-[4.27vw] py-14 md:pl-[304px] md:pr-10 md:py-14 lg:pl-[635px] lg:pr-40 lg:py-[84px] xl:pl-[848px] xl:pr-[260px] bg-white flex flex-col justify-start items-start gap-2.5 overflow-hidden xs:overflow-visible md:overflow-hidden lg:overflow-hidden">
       <div className="self-stretch flex flex-col justify-start items-start gap-4 xs:gap-4 md:gap-3 lg:gap-3">
         <div className="self-stretch text-neutral-800 text-xl xs:text-xl md:text-xl lg:text-3xl font-bold font-['Pretendard'] leading-loose xs:leading-loose md:leading-loose lg:leading-10">
           '나의 순간'에 몰입하는 방법
