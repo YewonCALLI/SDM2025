@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <div className='w-full bg-white h-fit sticky top-0 z-30'>
-      <div className='w-full h-[58px] xs: px-[16px] xs:py-[30px] lg:px-[48px] lg:py-[30px] lg:h-[80px] md:px-[40px] md:py-[30px] md:h-[68px] inline-flex justify-between items-center'>
+      <div className='w-full h-[58px] px-[16px] py-[30px] lg:px-[48px] lg:py-[30px] lg:h-[80px] md:px-[40px] md:py-[30px] md:h-[68px] inline-flex justify-between items-center'>
         <div className='h-7 relative bg-pink-200 flex justify-center items-center'>
           <div className="justify-start text-black text-sm font-semibold font-['Pretendard'] leading-tight">
             NEW FORMATIVE
@@ -112,7 +112,7 @@ export function Header() {
 
       {/* 모바일 메뉴 */}
       {isMobileMenuOpen && (
-        <div className='md:hidden bg-white border-t border-gray-200 px-6 py-4 xs:px-12 xs:py-6'>
+        <div className='md:hidden bg-white border-t border-gray-200 px-12 py-6'>
           <div className='flex flex-col gap-6'>
             <div className='flex flex-col gap-4'>
               <div className="text-neutral-800 text-xl font-semibold font-['Pretendard'] underline">

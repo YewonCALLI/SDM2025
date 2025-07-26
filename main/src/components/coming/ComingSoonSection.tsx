@@ -53,17 +53,17 @@ export default function ComingSoonSection() {
         <Footer />
       </div>
 
-      <div className='relative z-20'>
+      <div className='relative'>
         <Header />
       </div>
 
-      <div className='absolute top-[39.87%] left-1/2 transform -translate-x-1/2 text-[18vw] font-bold flex items-start justify-center'>
+      <div className='absolute h-fit top-1/2 rotate-90 landscape:md:rotate-0 lg:top-[39.87%] lg:rotate-0 left-1/2 transform -translate-y-1/2 landscape:md:tranform -translate-x-1/2 lg:tranform -translate-x-1/2 transform -translate-x-1/2 text-[18vw] font-bold flex items-center justify-center m-0'>
         <TimeUnit value={days} />
-        <Colon width={24} className="py-6" />
+        <Colon className='h-[8vw] w-auto pb-[1.5vw] aspect-[28/122]' />
         <TimeUnit value={hours} />
-        <Colon width={24} className="py-6"/>
+        <Colon  className='h-[8vw] w-auto pb-[1.5vw] aspect-[28/122]' />
         <TimeUnit value={minutes} />
-        <Colon width={24} className="py-6"/>
+        <Colon  className='h-[8vw] w-auto pb-[1.5vw] aspect-[28/122]' />
         <TimeUnit value={seconds} />
       </div>
     </section>
